@@ -1,8 +1,17 @@
 {
-  "dependencies": {
-  "googleapis": ">= 5.2.1",
-  "google-auth-library": ">= 0.9.7",
-  "request": ">= 2.72.0",
-  "xml2js": ">= 0.4.16"
-}
+	"name": "PepsiCalendar",
+	"version": "1.0.0",
+	"description": "Skripta sem að sækir alla leiki sumarsins til KSÍ og býr til Google calendar events.",
+	"author": "Ásgeir Einarsson <asgeire86@gmail.com>",
+	"license": "MIT",
+	"repository": {
+	"type": "git",
+	"url": "https://github.com/asgeire/PepsiCalendar2016.git"
+	},
+	"dependencies": {
+	"googleapis": ">= 5.2.1",
+	"google-auth-library": ">= 0.9.7",
+	"request": ">= 2.72.0",
+	"xml2js": ">= 0.4.16"
+	}
 }
