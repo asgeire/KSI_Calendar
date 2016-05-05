@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+  "googleapis": ">= 5.2.1",
+  "google-auth-library": ">= 0.9.7",
+  "request": ">= 2.72.0",
+  "xml2js": ">= 0.4.16"
+}
+}
