@@ -4,6 +4,7 @@ var google = require('googleapis');
 var googleAuth = require('google-auth-library');
 var request = require('request');
 var xml2js = require('xml2js');
+var util = require('util');
 
 
 // !!! STILLINGAR !!!
@@ -113,7 +114,29 @@ function saveGamesToCalendar(auth) {
 }
 
 
-function insertGames(gamesString) {
+function insertGamesPrompt() {
+  console.log('The following games will be inserted');
+  for (i = 0; i < myGames.length; i++) { 
+    game = myGames[i];
+    console.log("+++ " + game.FelagHeimaNafn + " - " + game.FelagUtiNafn + " | Date: " + new Date(game.LeikDagur).toLocaleDateString());
+  }
+  console.log("");
+  console.log('Do you want to continue? y/n');
+
+  process.stdin.setEncoding('utf8');
+  process.stdin.on('data', function (text) {
+  text = text.toLowerCase();
+  if (text.indexOf('y') >= 0) {
+    insertGamesToCalendar();
+  }
+  else {
+    process.exit();
+  }
+  });
+}
+
+function insertGamesToCalendar()
+{
   var calendar = google.calendar('v3');
 
   for (i = 0; i < myGames.length; i++) { 
@@ -136,8 +159,7 @@ function insertGames(gamesString) {
       },
     };
 
-    //console.log(newEvent.summary);
-
+    var insertCounter = 1;
     calendar.events.insert({
       auth: globalauth,
       calendarId: 'primary',
@@ -145,13 +167,19 @@ function insertGames(gamesString) {
     }, function(err, event) {
       if (err) {
         console.log('There was an error creating an event: ' + err);
-        return;
+        //return;
       }
-      console.log(event.summary + ' created');
-      console.log('Event link: %s', event.htmlLink);
+      else {
+        console.log(event.summary + ' created');
+        console.log('Event link: %s', event.htmlLink);
+      }
+      insertCounter++;
+      if(insertCounter == myGames.length) {
+        console.log("Program end");
+        process.exit();
+      }
     });
   }
-  console.log("Program end");
 }
 
 function parseGameResponse(xml) {
@@ -173,7 +201,7 @@ function filterGames(games){
     }
   }
   console.log("Game count after filtering " + myGames.length);
-  insertGames();
+  insertGamesPrompt();
 }
 
 
