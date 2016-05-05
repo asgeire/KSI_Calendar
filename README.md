@@ -1,7 +1,7 @@
-PepsiCalendar
+KSI_Calendar
 ===========
 
-Skripta sem að sækir alla leiki sumarsins til KSÍ og býr til Google calendar events.
+Forrit sem að sækir alla leiki sumarsins til KSÍ og býr til Google calendar events.
 
 
 Description
@@ -20,17 +20,21 @@ Usage
 =====
 
 Það þarf að stilla myTeam breytuna fyrir liðið sem þú vilt fá events fyrir.
-motNumer er harðkóðað á ID fyrir Pepsi deild karla 2016
 
-var myTeam = "Stjarnan"; //SET YOUR TEAM NAME
+	var myTeam = "Stjarnan";
 
-Í fyrsta skipti sem að skriptan er keyrð þarf að auðkenna sig hjá Google. Það er gert með því að opna slóð sem að birtist í console og setja svo inn token.
+
+Breytan motNumer er harðkóðað á ID fyrir Pepsi deild karla 2016. 
+
+	var motNumer = "35586";
+
+Hægt er að breyta þessu ID og fá þannig aðrar deildir, bæði karla og kvenna. ID er hægt að finna hérna: http://www.ksi.is/mot/motalisti/
+
+Í fyrsta skipti sem að forritið er keyrt þarf að auðkenna sig hjá Google. Það er gert með því að opna slóð sem að birtist í console og setja svo inn token.
 Token er vistaður á disk þannig að það þarf ekki að endurtaka þetta skref.
 
 TODO
 =====
 Bæta við virkni til að uppfæra events. 
 Ég nota ID fyrir leikina frá KSÍ og set inn sem calendar eventId. 
-Því ætti að vera hægt að gera UPSERT virkni og keyra skriptuna aftur seinna í sumar ef leikir riðlast.
-
-Bæta við bikarleikjum.
+Því ætti að vera hægt að gera UPSERT virkni og keyra forritið aftur seinna í sumar ef leikir riðlast.
