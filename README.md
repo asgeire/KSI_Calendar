@@ -12,6 +12,7 @@ Leikir eru filteraðir miðað við lið notanda og eingöngu leikir fram í tí
 Loks er insert fallið í Google Calendar API notað til að búa til calendar events.
 
 Google Calendar API Info:
+
 	https://developers.google.com/google-apps/calendar/quickstart/nodejs
 	https://developers.google.com/google-apps/calendar/create-events#add_an_event
 
@@ -19,6 +20,7 @@ Installation
 ============
 
 Step 1: Turn on the Google Calendar API
+
 	a.	Use <a href="https://console.developers.google.com/start/api?id=calendar">this wizard</a> to create or select a project in the Google Developers Console and automatically turn on the API. Click Continue, then Go to credentials.
 	b.	At the top of the page, select the OAuth consent screen tab. Select an Email address, enter a Product name if not already set, and click the Save button.
 	c.	Select the Credentials tab, click the Create credentials button and select OAuth client ID.
@@ -28,6 +30,7 @@ Step 1: Turn on the Google Calendar API
 	g.	Move this file to your working directory and rename it client_secret.json.
 
 Step 2: Install dependencies
+
 	npm install
 
 Usage
